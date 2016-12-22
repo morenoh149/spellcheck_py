@@ -7,7 +7,7 @@ WORDS = Counter(words(open('big.txt').read()))
 
 def P(word, N=sum(WORDS.values())):
     "Probability of `word`."
-    return WORDS[word] / N
+    return WORDS[word] / float(N)
 
 def correction(word):
     "Most probable spelling correction for word."
@@ -15,7 +15,7 @@ def correction(word):
 
 def candidates(word):
     "Generate possible spelling corrections for word."
-    return set(w for w in words if w in WORDS)
+    return set(w for w in word if w in WORDS)
 
 def edits1(word):
     "All edits that are one edit away from `word`."
@@ -28,5 +28,5 @@ def edits1(word):
     return set(deletes + transposes + replaces + inserts)
 
 def edits2(word):
-    "All edits that are two edits awaya form `word`."
+    "All edits that are two edits away form `word`."
     return (e2 for e1 in edits1(word) for e2 in edits1(e1))
