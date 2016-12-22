@@ -8,16 +8,3 @@ $ python3 -i spell.py
 >>> correction('speling')
 'spelling'
 ```
-
-*error*
-```
-$ python -i spell.py 
->>> correction('speling')
-Traceback (most recent call last):
-	  File "<stdin>", line 1, in <module>
-	    File "spell.py", line 14, in correction
-	      return max(candidates(word), key=P)
-	    File "spell.py", line 18, in candidates
-	      return set(w for w in words if w in WORDS)
-	  TypeError: 'function' object is not iterable
-```      
